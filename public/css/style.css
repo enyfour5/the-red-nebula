@@ -1,0 +1,30 @@
+html, body {
+  padding: 5px;
+  margin: 0;
+}
+
+* {
+  font-family: "helvetica neue", Helvetica, Arial, sans-serif;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+.navbar {
+  width: auto;
+  
+}
