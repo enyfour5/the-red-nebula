@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
 var bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 
 app.use(bodyParser.urlencoded({
-   extended: false
+   extended: true
 }));
-
 app.use(bodyParser.json());
 
 
@@ -15,8 +15,16 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Register for a free account' });
 });
 
-router.post('/register', function(req, res) {
-  var input = JSON.parse(JSON.stringify(req.body));
+router.post('/register', [
+check('username').not().isEmpty().withMessage('please fill out username')
+], function(req, res) {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+  return res.status(422).json({ errors: errors.array() });
+  }
+
+
   var today = new Date();
   var confirmPassword = req.body.confirm_password;
   var userData = {
