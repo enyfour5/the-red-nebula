@@ -9,7 +9,7 @@
   "author": "Rene (http://theredmebula.com)",
   "dependencies": {
     "async": "^3.1.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.16.1",
     "dotenv": "^8.0.0",
     "ejs": "^2.5.6",
